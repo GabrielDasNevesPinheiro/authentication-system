@@ -15,7 +15,7 @@ router.post("/login", async (req, res) => {
 
     const user = await User.findOne({ username });
 
-    if(!user) return res.status(404).json({ error: "Not Found" });
+    if(!user) return res.status(404).json({ error: "Not Found." });
 
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) return res.status(403).json({ error: "Access Denied." });
