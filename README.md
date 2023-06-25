@@ -113,8 +113,6 @@ headers: {
 
 #
 
-##
-
 ```http
   DELETE /profile
 ```
@@ -128,8 +126,6 @@ headers: {
 #### Returns
 * 403 - `{ error: "Access Denied." }`
 * 200 - ` { message: "Account Deleted." }`
-
-##
 
 #
 
