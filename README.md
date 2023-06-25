@@ -39,6 +39,9 @@ the server uses the following environment variables:
 headers: {
     api_key: "topsecretapikey",
 }
+
+#
+
 ```
 #### Login request
 
@@ -56,7 +59,7 @@ headers: {
 * 403 - `{ error: "Access Denied." }`
 * 200 - ` { message: "Login Sucessful.", token: "xxxxxxxx..." }`
 
-
+#
 
 #### Register request
 
@@ -75,6 +78,8 @@ headers: {
 * 403 - `{ error: "Access Denied." }`
 * 201 - ` { message: "Account Registered." }`
 
+#
+
 #### Logout request
 
 ```http
@@ -90,6 +95,7 @@ headers: {
 * 403 - `{ error: "Access Denied." }`
 * 200 - ` { message: "Logged out." }`
 
+#
 
 #### Profile requests
 
@@ -104,6 +110,8 @@ headers: {
 #### Returns
 * 403 - `{ error: "Access Denied." }`
 * 200 - ` { message: "Welcome to your profile (username)" }`
+
+#
 
 ##
 
@@ -122,6 +130,8 @@ headers: {
 * 200 - ` { message: "Account Deleted." }`
 
 ##
+
+#
 
 ```http
   PATCH /profile
@@ -142,7 +152,7 @@ headers: {
 * 200 - ` { message: "Data Updated." }`
 ## Run the server
 
-Clone o projeto
+Clone repo
 
 ```bash
   git clone https://github.com/GabrielDasNevesPinheiro/authentication-system.git

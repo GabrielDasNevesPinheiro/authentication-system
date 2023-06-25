@@ -11,7 +11,7 @@ router.post("/register", async (req, res) => {
 
     const isRegistered = await User.findOne({ username }); // if user exists in database isRegistered = true
 
-    if(isRegistered) return res.status(409).json({ error: "Conflict within server information" });
+    if(isRegistered) return res.status(409).json({ error: "Conflict within server information." });
     
     try { // save new user
         
