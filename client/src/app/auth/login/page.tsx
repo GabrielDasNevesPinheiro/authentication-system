@@ -5,6 +5,7 @@ import { login } from "@/redux/auth/authSlice";
 import { RootState } from "@/redux/store";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/navigation";
 
 const server = process.env.SERVER_URL as string;
 const key = process.env.API_KEY as string;
@@ -15,6 +16,8 @@ type LoginResponse = {
 }
 
 export default function LoginPage() {
+
+    const router = useRouter();
     
     const token = useSelector((state: RootState) => state.auth.value);
     const dispatch = useDispatch();
@@ -47,15 +50,13 @@ export default function LoginPage() {
         })).json();
         
         if(res.message) dispatch(login(res.token));
+        router.refresh();
 
     }
     
 
-    if (token) return (
-        <div className="flex flex-col justify-center items-center h-screen">
-            <h1 className="text-2xl">You are Logged in.</h1>
-        </div>
-    )
+    if (token) router.push("/profile");
+    
 
     return (
         <div className="flex flex-col justify-center items-center h-screen">
