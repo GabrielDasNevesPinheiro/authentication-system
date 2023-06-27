@@ -1,10 +1,24 @@
 "use client";
 
 import Button from "@/components/button";
+import { login } from "@/redux/auth/authSlice";
+import { RootState } from "@/redux/store";
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+const server = process.env.SERVER_URL as string;
+const key = process.env.API_KEY as string;
+
+type LoginResponse = {
+    message: string,
+    token: string,
+}
 
 export default function LoginPage() {
-
+    
+    const token = useSelector((state: RootState) => state.auth.value);
+    const dispatch = useDispatch();
+    
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
 
@@ -14,9 +28,34 @@ export default function LoginPage() {
     function passwordChange(event: React.ChangeEvent<HTMLInputElement>) {
         setPassword(event.target.value)
     }
-    function submit() {
-        console.log(`${username} ${password}`);
+    async function submit() {
+        
+        const loginData = JSON.stringify({
+            username: username,
+            password: password
+        });
+
+        const res: LoginResponse = await (await fetch(`${server}/auth/login`, 
+        { 
+            method: 'POST', 
+            body: loginData, 
+            headers: {
+                api_key: key,
+                'Content-Type': 'application/json'
+            }, 
+            mode: 'cors'
+        })).json();
+        
+        if(res.message) dispatch(login(res.token));
+
     }
+    
+
+    if (token) return (
+        <div className="flex flex-col justify-center items-center h-screen">
+            <h1 className="text-2xl">You are Logged in.</h1>
+        </div>
+    )
 
     return (
         <div className="flex flex-col justify-center items-center h-screen">
