@@ -1,9 +1,13 @@
 "use client";
 
 import Button from "@/components/button";
+import { RootState } from "@/redux/store";
 import React, { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function LoginPage() {
+
+    const isLogged = useSelector((state: RootState) => state.auth.value);
 
     const [username, setUsername] = useState<string>('');
     const [password, setPassword] = useState<string>('');
@@ -21,6 +25,12 @@ export default function LoginPage() {
     function submit() {
         console.log(`${username} ${password} ${secondPassword}`);
     }
+
+    if (isLogged) return (
+        <div className="flex flex-col justify-center items-center h-screen">
+            <h1 className="text-2xl">You cannot create accounts.</h1>
+        </div>
+    )
 
     return (
         <div className="flex flex-col justify-center items-center h-screen">
