@@ -32,13 +32,30 @@ export default function ProfilePage() {
 
     }
 
+    function deleteAction () {
+        fetch(`${server}/profile`, {
+            headers: {
+                api_key: key,
+                authorization: token,
+            }, method: 'DELETE'
+        }).then(() => {
+
+            dispatch(logout());
+            router.refresh();
+
+        });
+    }
+
     if (!token) router.push("/");
 
     return (
         <div className="flex flex-col items-center justify-center h-screen">
             <div className="flex flex-col space-y-4 items-center">
                 <h1 className="text-4xl">Logged in.</h1>
-                <Button onClick={logoutAction}>Logout</Button>
+                <div className="flex space-x-2">
+                    <Button onClick={logoutAction}>Logout</Button>
+                    <Button onClick={deleteAction}>Delete account</Button>
+                </div>
             </div>
         </div>
     );
