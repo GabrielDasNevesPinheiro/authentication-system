@@ -12,10 +12,11 @@ Although the name is self-explanatory, here is a repository intended for a basic
 * MongoDB storing
 ## Stacks
 
-**Front-end:** React, NextJS, Redux
+### **Front-end:** 
+[![Front-end](https://skillicons.dev/icons?i=nextjs,react,tailwind,redux,ts)](https://skillicons.dev)
 
-**Back-end:** MongoDB, Express, Nodejs
-
+### **Back-end:**
+[![Back-end](https://skillicons.dev/icons?i=node,express,mongodb)](https://skillicons.dev)
 
 ## Environment Variables
 
