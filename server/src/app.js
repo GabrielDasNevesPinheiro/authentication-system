@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import morgan from 'morgan';
 import { config } from 'dotenv';
 import authRoute from './routes/auth/auth.js';
 import profile from './routes/profile/profile.js'
@@ -22,6 +23,7 @@ mongoose.connect(mongo_url).then(() => {
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(morgan('combined'));
 
 // application api_key validation middleware
 app.use(verifyApplication);

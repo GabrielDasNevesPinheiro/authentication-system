@@ -13,7 +13,13 @@ export default function ProfilePage() {
     const token = useSelector((state: RootState) => state.auth.value );
     const dispatch = useDispatch();
 
-    function logoutAction() {
+    async function logoutAction() {
+
+        await fetch(`${process.env.SERVER_URL as string}/auth/logout`, { headers: {
+            api_key: `${process.env.API_KEY}`,
+            authorization: `${token}`
+        }});
+
         dispatch(logout());
         router.refresh();
     }
