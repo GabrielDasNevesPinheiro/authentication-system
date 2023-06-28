@@ -36,6 +36,10 @@ export default function LoginPage() {
 
     async function submit() {
 
+
+        if (username.length < 3 || password.length < 8) return setOutput('Insert valid values.');
+        if (secondPassword !== password) return setOutput('Please confirm password.');
+
         const registerData = JSON.stringify({
             username: username,
             password: password
