@@ -7,7 +7,7 @@ import { config } from 'dotenv';
 config();
 
 const router = express.Router();
-const privatekey = process.env.JWT_SECRET
+const privatekey = process.env.JWT_SECRET;
 
 router.post("/login", async (req, res) => {
     
