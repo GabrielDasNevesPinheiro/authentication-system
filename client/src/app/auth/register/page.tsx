@@ -54,7 +54,7 @@ export default function LoginPage() {
 
         if (res.message) {
             setTimeout(() => {
-                router.push("/auth/login")
+                router.push("/auth/login");
             }, 5000);
             setOutput("Account Registered.");
         } else {
