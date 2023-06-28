@@ -12,7 +12,7 @@ Although the name is self-explanatory, here is a repository intended for a basic
 * MongoDB storing
 ## Stacks
 
-**Front-end:** React, NextJS, Redux
+**Front-end:** React, NextJS, Tailwindcss, Redux
 
 **Back-end:** MongoDB, Express, Nodejs
 
