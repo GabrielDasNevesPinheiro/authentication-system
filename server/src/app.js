@@ -23,7 +23,7 @@ mongoose.connect(mongo_url).then(() => {
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use(morgan('combined'));
+app.use(morgan(':method :url :status'));
 
 // application api_key validation middleware
 app.use(verifyApplication);
