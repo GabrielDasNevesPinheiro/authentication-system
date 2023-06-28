@@ -10,18 +10,26 @@ import { useSelector, useDispatch } from "react-redux";
 export default function ProfilePage() {
 
     const router = useRouter();
-    const token = useSelector((state: RootState) => state.auth.value );
+    const token = useSelector((state: RootState) => state.auth.value);
     const dispatch = useDispatch();
 
-    async function logoutAction() {
+    const server = process.env.SERVER_URL as string;
+    const key = process.env.API_KEY as string;
 
-        await fetch(`${process.env.SERVER_URL as string}/auth/logout`, { headers: {
-            api_key: `${process.env.API_KEY}`,
-            authorization: `${token}`
-        }});
+    function logoutAction() {
 
-        dispatch(logout());
-        router.refresh();
+        fetch(`${server}/auth/logout`, {
+            headers: {
+                api_key: key,
+                authorization: token,
+            }, method: 'POST'
+        }).then(() => {
+
+            dispatch(logout());
+            router.refresh();
+
+        });
+
     }
 
     if (!token) router.push("/");
