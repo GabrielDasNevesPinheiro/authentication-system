@@ -11,7 +11,10 @@ const privatekey = process.env.JWT_SECRET;
 
 router.post("/login", async (req, res) => {
     
-    const { username, password } = req.body;
+    const name = req.body.username;
+    const { password } = req.body;
+
+    let username = name.toLowerCase();
 
     const user = await User.findOne({ username });
 

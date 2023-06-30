@@ -6,7 +6,11 @@ const router = express.Router();
 
 router.post("/register", async (req, res) => {
     
-    const { username, password } = req.body;
+    const name = req.body.username;
+    const { password } = req.body;
+
+    let username = name.toLowerCase(); // for case sensitive
+
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const isRegistered = await User.findOne({ username }); // if user exists in database isRegistered = true

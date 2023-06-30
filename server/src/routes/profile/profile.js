@@ -35,12 +35,12 @@ router.delete("/", async (req, res) => { // this route can be used to delete acc
 
 router.patch("/", async (req, res) => { // change user information
 
-    const newUsername = req.body.username;
+    const name = req.body.username;
     const password = req.body.password;
     const token = req.headers.authorization;
+    let newUsername = name.toLowerCase();
 
     try {
-
 
 
         // Getting logged user + checking password
