@@ -126,7 +126,7 @@ headers: {
 #### Returns
 * 403 - `{ error: "Access Denied." }`
 * 400 - `{ error: "Bad Request." }`
-* 200 - ` { message: "Data Updated." }`
+* 200 - ` { message: "Data Updated.", token: "xxxxxx..." }`
 ## Run the server
 
 Clone repo
