@@ -22,7 +22,7 @@ router.post("/login", async (req, res) => {
 
     const token = jwt.sign({ username }, privatekey, { expiresIn: "24h"});
     
-    res.status(200).json({ message: "Login Successful.", token: token });
+    res.status(200).json({ message: "Login Successful.",  username: user.username, token: token, });
 });
 
 export default router;
