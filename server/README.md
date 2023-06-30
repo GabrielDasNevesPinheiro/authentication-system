@@ -38,7 +38,7 @@ headers: {
 #### Returns
 * 404 - `{ error: "Not Found." }`
 * 403 - `{ error: "Access Denied." }`
-* 200 - ` { message: "Login Sucessful.", token: "xxxxxxxx..." }`
+* 200 - ` { message: "Login Sucessful.", username: "xxxxxx...", token: "xxxxxxxx..." }`
 
 #
 
