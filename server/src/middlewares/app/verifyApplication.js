@@ -3,7 +3,7 @@ import { config } from "dotenv"
 config();
 
 const valid_key = process.env.API_KEY;
-const auth_origin = process.env.AUTHORIZED_ORIGIN;
+const auth_origin = process.env.AUTHORIZED_ORIGIN; 
 
 // aditional security layer, nobody can request this back-end without the defined ultra secret code.
 const verifyApplication = (req, res, next) => {
