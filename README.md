@@ -2,6 +2,7 @@
 # Authentication System
 
 Although the name is self-explanatory, here is a repository intended for a basic CRUD application.
+I still working here, trying to improve my Full Stack knowledges
 
 ## Stack
 
