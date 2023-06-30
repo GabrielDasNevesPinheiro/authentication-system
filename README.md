@@ -11,7 +11,8 @@ Although the name is self-explanatory, here is a repository intended for a basic
 * GET/POST/PATCH/DELETE HTTP methods
 * JWT Token Authorization based
 * Invalid JWT Tokens Blacklist
-* Client access key validation
+* Access IP authorization
+* Client access key authorization
 * Password Hashing
 * MongoDB
 
